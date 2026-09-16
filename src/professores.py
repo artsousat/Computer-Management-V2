@@ -25,8 +25,8 @@ professores = {
 def carregar_professores():
     try:
         with open ("dados/professores.json", "r") as arquivo:
-            dados = json.load(arquivo)
-            return dados
+            dados_professores = json.load(arquivo)
+            return dados_professores
     except FileNotFoundError:
         with open("dados/professores.json", "w") as arquivo:
             json.dump(professores, arquivo, indent=4)

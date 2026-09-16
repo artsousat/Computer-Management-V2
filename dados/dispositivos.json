@@ -1,0 +1,37 @@
+{
+    "1": {
+        "nome": "Chromebook",
+        "estoque": 40,
+        "quebrados": 1,
+        "sumido": 1,
+        "utilizaveis": 38
+    },
+    "2": {
+        "nome": "Positivo",
+        "estoque": 59,
+        "quebrados": 0,
+        "sumido": 0,
+        "utilizaveis": 59
+    },
+    "3": {
+        "nome": "Tablets",
+        "estoque": 50,
+        "quebrados": 0,
+        "sumido": 0,
+        "utilizaveis": 50
+    },
+    "4": {
+        "nome": "Multilaser",
+        "estoque": 10,
+        "quebrados": 0,
+        "sumido": 0,
+        "utilizaveis": 10
+    },
+    "5": {
+        "nome": "Positivo DS",
+        "estoque": 15,
+        "quebrados": 1,
+        "sumido": 0,
+        "utilizaveis": 14
+    }
+}
