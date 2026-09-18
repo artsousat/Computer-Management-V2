@@ -58,10 +58,8 @@ def cadastrar_dispositivo():
         dispositivos[numero_str] = {"nome": novo_dispositivo,"estoque": quantidade_dispositivo,"quebrados": 0,"sumido": 0,"utilizaveis": quantidade_dispositivo}
         with open("dados/dispositivos.json", "w") as arquivo:
             json.dump(dispositivos, arquivo, indent=4)
-
             print("Dispositivo", novo_dispositivo, "cadastrado com sucesso!")
             time.sleep(2)
-
             return
 
 def remover_dispositivo():
