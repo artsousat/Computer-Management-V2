@@ -1,33 +1,70 @@
 # Computer Management — V2
 
-Sistema de gerenciamento de equipamentos desenvolvido em Python, criado para evoluir um projeto de controle de empréstimos em direção a uma aplicação mais estruturada e orientada a dados.
+Sistema de gerenciamento de equipamentos desenvolvido em **Python**, criado para controlar professores, dispositivos, estoque, empréstimos e devoluções em um ambiente escolar.
 
-A **V2** tem como principal objetivo introduzir **persistência de dados**, organização do código em módulos e uma estrutura preparada para futuras evoluções com **SQLite, SQL, histórico de movimentações e métricas**.
+A V2 representa a evolução do projeto inicial, introduzindo **persistência de dados em JSON**, organização do código em módulos, controle de estoque, histórico de movimentações e uma estrutura preparada para futuras versões com **SQLite, SQL e modelagem de banco de dados**.
 
-> **Status:** 🚧 Em desenvolvimento — V2
+## Objetivo
 
----
+O projeto simula um sistema utilizado para controlar equipamentos de uma escola, permitindo acompanhar quais dispositivos estão disponíveis, emprestados, quebrados ou desaparecidos.
 
-## 🎯 Objetivo do projeto
+Além de desenvolver conhecimentos em Python, o projeto foi construído pensando na evolução dos dados gerados pelo sistema, que futuramente serão utilizados em uma estrutura de banco de dados e consultas SQL.
 
-O Computer Management foi pensado para representar um cenário real de controle de equipamentos em uma escola.
+## Funcionalidades
 
-O sistema deverá permitir:
+### Professores
 
-- cadastrar e gerenciar professores;
-- cadastrar e gerenciar dispositivos;
-- controlar o estoque disponível;
-- registrar empréstimos;
-- registrar devoluções;
-- manter histórico das movimentações;
-- armazenar os dados de forma persistente;
-- futuramente transformar os dados gerados pelo sistema em informações úteis para análise.
+* Cadastro de professores
+* Visualização dos professores cadastrados
+* Remoção de professores
+* Identificação por ID
+* Persistência dos dados em JSON
 
-A V2 é uma etapa intermediária entre um programa totalmente baseado em memória e uma aplicação orientada a banco de dados.
+### Dispositivos
 
----
+* Cadastro de dispositivos
+* Visualização dos dispositivos
+* Remoção de dispositivos
+* Controle de estoque
+* Controle de dispositivos disponíveis
+* Registro de dispositivos quebrados
+* Registro de dispositivos desaparecidos
+* Registro de dispositivos encontrados
+* Registro de dispositivos consertados
 
-## 🏗️ Estrutura atual
+### Empréstimos
+
+* Registro de empréstimos
+* Associação entre professor e dispositivo
+* Controle da quantidade emprestada
+* Atualização do estoque disponível
+* Identificação dos empréstimos por ID
+* Registro de data e horário
+* Visualização dos empréstimos ativos
+* Devolução total
+* Devolução parcial
+
+### Histórico
+
+* Registro das devoluções
+* Armazenamento das informações do empréstimo
+* Registro da data de devolução
+* Histórico persistente em JSON
+* Opção de limpeza do histórico
+
+## Tecnologias utilizadas
+
+* **Python**
+* **JSON**
+* **Git / GitHub**
+* Estruturas de dados
+* Funções
+* Condicionais
+* Laços de repetição
+* Manipulação de arquivos
+* Organização modular
+
+## Estrutura do projeto
 
 ```text
 Computer Management-V2/
@@ -48,322 +85,77 @@ Computer Management-V2/
 └── README.md
 ```
 
-### `main.py`
+## Organização
 
-É o ponto de entrada da aplicação.
+O projeto foi dividido em módulos para separar as responsabilidades do sistema:
 
-Responsabilidades atuais:
+* `main.py` → menu principal e inicialização
+* `professores.py` → gerenciamento dos professores
+* `dispositivos.py` → gerenciamento dos equipamentos e estoque
+* `emprestimos.py` → empréstimos, devoluções e histórico
+* `utils.py` → funções utilizadas em diferentes partes do sistema
+* `dados/` → armazenamento persistente das informações
 
-- iniciar o sistema;
-- exibir o menu principal;
-- direcionar o usuário para os módulos de professores, dispositivos e empréstimos;
-- tratar entradas inválidas no menu principal.
+Essa organização permite que cada parte do sistema seja desenvolvida e modificada separadamente.
 
-### `src/professores.py`
+## Persistência de dados
 
-Responsável pelo gerenciamento dos professores.
+Na V2, os dados deixam de existir apenas durante a execução do programa.
 
-Atualmente possui:
+As informações são armazenadas em arquivos `.json`, permitindo que o sistema seja fechado e executado novamente sem perder os dados cadastrados.
 
-- carregamento dos professores;
-- cadastro de novos professores;
-- visualização dos professores;
-- remoção de professores;
-- persistência dos dados em JSON;
-- menu específico de professores.
-
-### `src/dispositivos.py`
-
-Módulo destinado ao gerenciamento dos equipamentos.
-
-O menu já está estruturado e preparado para receber as funcionalidades de:
-
-- cadastro;
-- visualização;
-- remoção;
-- controle de estoque.
-
-O módulo possui cadastro, visualização, remoção, controle de estoque e registro de ocorrências.
-
-### `src/emprestimos.py`
-
-Responsável pelo controle dos empréstimos.
-
-Possui:
-
-- registro de empréstimos;
-- identificação do professor e dispositivo;
-- controle da quantidade disponível;
-- visualização dos dispositivos em uso;
-- devolução total ou parcial;
-- histórico de devoluções;
-- registro de data e horário;
-- persistência dos dados em JSON.
-
-### `src/utils.py`
-
-Contém funções reutilizáveis pelo sistema.
-
-Atualmente possui a função responsável pelo cabeçalho dos menus, incluindo:
-
-- título da tela;
-- data atual;
-- horário atual.
-
-### `dados/professores.json`
-
-Arquivo utilizado como primeira camada de persistência da V2.
-
-Os professores cadastrados deixam de existir apenas durante a execução do programa e passam a ser armazenados em um arquivo JSON.
-
----
-
-## 💾 Persistência de dados
-
-Uma das principais mudanças da V1 para a V2 é a introdução de **persistência**.
-
-Na V1, os dados existiam apenas enquanto o programa estava executando.
-
-Na V2, os professores são armazenados em:
+Os principais arquivos são:
 
 ```text
-dados/professores.json
+professores.json
+dispositivos.json
+emprestimos.json
+historico.json
 ```
 
-O sistema utiliza o módulo `json` do Python para:
+A persistência também prepara o projeto para uma próxima etapa: substituir os arquivos JSON por um **banco de dados relacional**.
 
-1. abrir o arquivo;
-2. carregar os dados;
-3. transformar o JSON em um dicionário Python;
-4. modificar os dados;
-5. salvar novamente o dicionário no arquivo.
+## Evolução do projeto
 
-Essa estrutura prepara o projeto para uma próxima evolução: substituir o armazenamento em arquivos por um **banco de dados relacional**.
-
----
-
-## 🧩 Organização modular
-
-A V2 também representa uma evolução na arquitetura do código.
-
-Em vez de concentrar todas as funções em um único arquivo, o projeto foi dividido por responsabilidade:
+O Computer Management está sendo desenvolvido por versões, acompanhando a evolução dos conhecimentos utilizados no projeto.
 
 ```text
-main.py
-   │
-   ├── professores.py
-   ├── dispositivos.py
-   ├── emprestimos.py
-   └── utils.py
+V1
+Python + lógica de programação
+        ↓
+V2
+Python + módulos + persistência + JSON
+        ↓
+Próxima etapa
+SQLite + SQL + modelagem de dados
+        ↓
+Futuras versões
+Banco de dados + consultas + métricas + análise
 ```
 
-Essa separação facilita:
+A ideia é utilizar o mesmo cenário como base para estudar diferentes conceitos de desenvolvimento e, principalmente, de **Engenharia de Dados**.
 
-- manutenção;
-- leitura do código;
-- localização de funcionalidades;
-- testes;
-- evolução independente dos módulos;
-- futura integração com banco de dados.
+## Conhecimentos desenvolvidos
 
----
+Durante o desenvolvimento da V2 foram praticados:
 
-## 🛠️ Tecnologias e conceitos utilizados
+* lógica de programação;
+* criação e utilização de funções;
+* estruturas condicionais;
+* estruturas de repetição;
+* listas e dicionários;
+* manipulação de arquivos;
+* leitura e escrita de JSON;
+* tratamento de erros;
+* organização de projetos Python;
+* divisão do sistema em módulos;
+* persistência de dados;
+* controle de estoque;
+* relacionamento entre diferentes conjuntos de dados;
+* criação de histórico de movimentações.
 
-### Linguagem
+## Autor
 
-- Python 3
+**Arthur Sousa**
 
-### Bibliotecas
-
-- `json`
-- `os`
-- `time`
-- `datetime`
-
-### Conceitos praticados
-
-- funções;
-- módulos e imports;
-- dicionários;
-- listas;
-- estruturas condicionais;
-- loops `while`;
-- tratamento de exceções com `try/except`;
-- leitura e escrita de arquivos;
-- persistência em JSON;
-- separação de responsabilidades;
-- organização de projeto em diretórios.
-
----
-
-## ▶️ Como executar
-
-Com o Python instalado, abra um terminal na pasta raiz do projeto:
-
-```bash
-python main.py
-```
-
-O sistema iniciará o menu principal:
-
-```text
-========================================
-           COMPUTER MANAGEMENT
-           DD/MM/AA - HH:MM:SS
-========================================
-
-[1] Professores
-[2] Dispositivos
-[3] Empréstimos
-[0] Sair
-```
-
----
-
-## 📌 Funcionalidades
-
-### ✅ Implementadas
-
-- [x] Menu principal
-- [x] Menu de professores
-- [x] Cadastro de professores
-- [x] Visualização de professores
-- [x] Remoção de professores
-- [x] Persistência de professores em JSON
-- [x] Geração automática do próximo identificador de professor
-- [x] Cabeçalho com data e horário
-- [x] Tratamento de entradas inválidas nos menus
-
-### ✅ Implementadas
-
-- [x] Cadastro de dispositivos
-- [x] Visualização de dispositivos
-- [x] Remoção de dispositivos
-- [x] Controle de estoque
-- [x] Registro de ocorrências
-- [x] Registro de empréstimos
-- [x] Controle de dispositivos em uso
-- [x] Devolução parcial
-- [x] Devolução total
-- [x] Histórico de devoluções
-- [x] Registro de data e horário das movimentações
-- [x] Limpeza do histórico
-- [x] Persistência dos dados em JSON
-
----
-
-## 🗺️ Roadmap
-
-A evolução planejada do projeto segue aproximadamente esta sequência:
-
-### V2 — Persistência e organização — concluída
-
-- organização do código em módulos;
-- persistência em JSON;
-- separação dos menus por responsabilidade;
-- gerenciamento de professores, dispositivos e empréstimos.
-
-### V3 — Banco de dados
-
-- introdução do SQLite;
-- modelagem das tabelas;
-- criação de relacionamentos;
-- operações CRUD utilizando SQL;
-- substituição gradual dos arquivos JSON pelo banco.
-
-### V4 — Histórico e dados
-
-- histórico completo de empréstimos;
-- registro de devoluções;
-- identificação de responsáveis;
-- consultas SQL;
-- métricas de utilização dos equipamentos.
-
-### V5 — Engenharia de Dados
-
-Evolução do sistema para gerar um fluxo de dados mais próximo de um projeto de Engenharia de Dados:
-
-```text
-Sistema
-   ↓
-Dados transacionais
-   ↓
-Extração
-   ↓
-Transformação
-   ↓
-Carga
-   ↓
-Banco de dados
-   ↓
-Consultas / Métricas
-   ↓
-Análise
-```
-
-Possíveis métricas:
-
-- quantidade de empréstimos;
-- equipamentos mais utilizados;
-- professores com maior número de empréstimos;
-- quantidade de devoluções;
-- utilização dos equipamentos ao longo do tempo;
-- disponibilidade do estoque;
-- frequência de utilização por tipo de dispositivo.
-
----
-
-## 📚 O que este projeto demonstra
-
-Mais do que um sistema de menus, o projeto está sendo utilizado como uma forma prática de estudar a evolução de uma aplicação:
-
-**V1**
-
-```text
-Python
-↓
-Lógica
-↓
-Dados em memória
-```
-
-**V2**
-
-```text
-Python
-↓
-Organização modular
-↓
-Persistência
-↓
-JSON
-```
-
-**Próximas versões**
-
-```text
-Python
-↓
-Banco de dados
-↓
-SQL
-↓
-Modelagem
-↓
-Histórico
-↓
-ETL
-↓
-Métricas
-```
-
-Essa evolução permite praticar conceitos de desenvolvimento de software enquanto aproxima o projeto de problemas encontrados em sistemas orientados a dados.
-
----
-
-## 👨‍💻 Projeto de estudo
-
-Projeto desenvolvido como parte da formação prática em **Ciência da Computação**, com foco em Python, bancos de dados, SQL e Engenharia de Dados.
-
-O projeto será evoluído progressivamente, mantendo versões anteriores como etapas do processo de aprendizagem.
+Estudante de Ciência da Computação e interessado em **Engenharia de Dados, Python, SQL, bancos de dados e construção de pipelines de dados**.
