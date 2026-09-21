@@ -1,1 +1,11 @@
-[]
+[
+    {
+        "id": 1,
+        "professor_id": "17",
+        "professor": "Larissa",
+        "dispositivo_id": "1",
+        "dispositivo": "Chromebook",
+        "quantidade": 1,
+        "data": "21/09/26 - 15:47:23"
+    }
+]

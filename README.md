@@ -33,7 +33,10 @@ A V2 é uma etapa intermediária entre um programa totalmente baseado em memóri
 Computer Management-V2/
 │
 ├── dados/
-│   └── professores.json
+│   ├── professores.json
+│   ├── dispositivos.json
+│   ├── emprestimos.json
+│   └── historico.json
 │
 ├── src/
 │   ├── professores.py
@@ -80,21 +83,22 @@ O menu já está estruturado e preparado para receber as funcionalidades de:
 - remoção;
 - controle de estoque.
 
-As operações ainda estão em desenvolvimento.
+O módulo possui cadastro, visualização, remoção, controle de estoque e registro de ocorrências.
 
 ### `src/emprestimos.py`
 
-Módulo destinado ao controle dos empréstimos.
+Responsável pelo controle dos empréstimos.
 
-O menu já está estruturado para:
+Possui:
 
-- realizar empréstimos;
-- visualizar dispositivos em uso;
-- realizar devoluções;
-- consultar histórico;
-- limpar o histórico do dia.
-
-As operações ainda estão em desenvolvimento.
+- registro de empréstimos;
+- identificação do professor e dispositivo;
+- controle da quantidade disponível;
+- visualização dos dispositivos em uso;
+- devolução total ou parcial;
+- histórico de devoluções;
+- registro de data e horário;
+- persistência dos dados em JSON.
 
 ### `src/utils.py`
 
@@ -231,20 +235,21 @@ O sistema iniciará o menu principal:
 - [x] Cabeçalho com data e horário
 - [x] Tratamento de entradas inválidas nos menus
 
-### 🚧 Em desenvolvimento
+### ✅ Implementadas
 
-- [ ] Cadastro de dispositivos
-- [ ] Visualização de dispositivos
-- [ ] Remoção de dispositivos
-- [ ] Controle de estoque
-- [ ] Registro de empréstimos
-- [ ] Controle de dispositivos em uso
-- [ ] Devolução parcial
-- [ ] Devolução total
-- [ ] Histórico de empréstimos
-- [ ] Registro de data e horário das movimentações
-- [ ] Limpeza do histórico diário
-- [ ] Persistência dos demais dados
+- [x] Cadastro de dispositivos
+- [x] Visualização de dispositivos
+- [x] Remoção de dispositivos
+- [x] Controle de estoque
+- [x] Registro de ocorrências
+- [x] Registro de empréstimos
+- [x] Controle de dispositivos em uso
+- [x] Devolução parcial
+- [x] Devolução total
+- [x] Histórico de devoluções
+- [x] Registro de data e horário das movimentações
+- [x] Limpeza do histórico
+- [x] Persistência dos dados em JSON
 
 ---
 
@@ -252,7 +257,7 @@ O sistema iniciará o menu principal:
 
 A evolução planejada do projeto segue aproximadamente esta sequência:
 
-### V2 — Persistência e organização
+### V2 — Persistência e organização — concluída
 
 - organização do código em módulos;
 - persistência em JSON;

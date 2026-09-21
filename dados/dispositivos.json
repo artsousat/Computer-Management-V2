@@ -3,7 +3,7 @@
         "nome": "Chromebook",
         "estoque": 40,
         "quebrados": 1,
-        "sumido": 1,
+        "sumido": 0,
         "utilizaveis": 38
     },
     "2": {
@@ -30,8 +30,8 @@
     "5": {
         "nome": "Positivo DS",
         "estoque": 15,
-        "quebrados": 1,
+        "quebrados": 0,
         "sumido": 0,
-        "utilizaveis": 14
+        "utilizaveis": 15
     }
 }

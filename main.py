@@ -30,7 +30,7 @@ def main():
         elif opcao == 3:
             emprestimos_menu()
         else:
-            print("Digite uma opção Válida!")
+            print("Digite uma opção válida!")
             time.sleep(2)
             continue
 

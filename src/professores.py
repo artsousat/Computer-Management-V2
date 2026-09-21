@@ -24,13 +24,13 @@ professores = {
 
 def carregar_professores():
     try:
-        with open ("dados/professores.json", "r") as arquivo:
+        with open("dados/professores.json", "r") as arquivo:
             dados_professores = json.load(arquivo)
             return dados_professores
     except FileNotFoundError:
         with open("dados/professores.json", "w") as arquivo:
             json.dump(professores, arquivo, indent=4)
-            return professores 
+            return professores
 professores = carregar_professores()
 
 def cadastro_professor():
@@ -40,6 +40,10 @@ def cadastro_professor():
     novo_professor = input("\nDigite o nome do professor que deseja cadastrar: ")
     if novo_professor == "0":
         return
+    if novo_professor == "":
+        print("Digite um nome válido!")
+        time.sleep(2)
+        return
     maior_numero = 0
     for item in professores:
         item_inteiro = int(item)
@@ -48,15 +52,16 @@ def cadastro_professor():
     numero = maior_numero + 1
     numero_str = str(numero)
     professores[numero_str] = novo_professor
-    with open ("dados/professores.json", "w") as arquivo:
+    with open("dados/professores.json", "w") as arquivo:
         json.dump(professores, arquivo, indent=4)
-        print("Professor", novo_professor,"cadastrado com sucesso!")
+        print("Professor", novo_professor, "cadastrado com sucesso!")
         time.sleep(2)
         return
 
 def ver_professor():
     os.system("cls")
-    print("PROFESSORES CADASTRADOS:\n")
+    cabeçalho("PROFESSORES CADASTRADOS")
+    print()
     for numero, professor in professores.items():
         print(f"{numero} - {professor}")
     input("\nAperte Enter para voltar ao menu principal...")
@@ -77,7 +82,7 @@ def remover_professor():
             time.sleep(2)
             continue
         del professores[selecionado]
-        with open ("dados/professores.json", "w") as arquivo:
+        with open("dados/professores.json", "w") as arquivo:
             json.dump(professores, arquivo, indent=4)
         print("Professor removido com sucesso!")
         time.sleep(2)
@@ -106,6 +111,6 @@ def professores_menu():
         elif opcao_professor == 3:
             remover_professor()
         else:
-            print("Digite uma opção Válida!")
+            print("Digite uma opção válida!")
             time.sleep(2)
             continue

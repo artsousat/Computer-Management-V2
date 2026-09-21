@@ -5,22 +5,17 @@ import json
 from src.utils import cabeçalho
 
 dispositivos = {
-    "1": {"nome": "Chromebook", "estoque": 40, "quebrados": 1, "sumido": 1, "utilizaveis": 0},
-    "2": {"nome": "Positivo", "estoque": 59, "quebrados": 0, "sumido": 0, "utilizaveis": 0},
-    "3": {"nome": "Tablets", "estoque": 50, "quebrados": 0, "sumido": 0, "utilizaveis": 0},
-    "4": {"nome": "Multilaser", "estoque": 10, "quebrados": 0, "sumido": 0, "utilizaveis": 0},
-    "5": {"nome": "Positivo DS", "estoque": 15, "quebrados": 0, "sumido": 0, "utilizaveis": 0},
+    "1": {"nome": "Chromebook", "estoque": 40, "quebrados": 1, "sumido": 1, "utilizaveis": 38},
+    "2": {"nome": "Positivo", "estoque": 59, "quebrados": 0, "sumido": 0, "utilizaveis": 59},
+    "3": {"nome": "Tablets", "estoque": 50, "quebrados": 0, "sumido": 0, "utilizaveis": 50},
+    "4": {"nome": "Multilaser", "estoque": 10, "quebrados": 0, "sumido": 0, "utilizaveis": 10},
+    "5": {"nome": "Positivo DS", "estoque": 15, "quebrados": 0, "sumido": 0, "utilizaveis": 15},
 }
 
 def carregar_dispositivos():
     try:
         with open("dados/dispositivos.json", "r") as arquivo:
             dados_dispositivos = json.load(arquivo)
-            for item, dados_dispositivo in dados_dispositivos.items():
-                utilizaveis = (dados_dispositivo["estoque"] - dados_dispositivo["quebrados"] - dados_dispositivo["sumido"])
-                dados_dispositivo["utilizaveis"] = utilizaveis
-        with open("dados/dispositivos.json", "w") as arquivo:
-            json.dump(dados_dispositivos, arquivo, indent=4)
             return dados_dispositivos
     except FileNotFoundError:
         with open("dados/dispositivos.json", "w") as arquivo:
@@ -69,7 +64,7 @@ def remover_dispositivo():
         for item, dados_dispositivo in dispositivos.items():
             print(f"ID: {item}\n"f"Dispositivo: {dados_dispositivo['nome']}\n"f"Estoque: {dados_dispositivo['estoque']}\n")
         print("[0] Voltar ao menu\n")
-        selecionado = input("Digite o id do dispositivo que gostaria de remover: ")
+        selecionado = input("Digite o ID do dispositivo que gostaria de remover: ")
         if selecionado == "0":
             return
         if selecionado not in dispositivos:
@@ -98,7 +93,7 @@ def ver_dispositivo():
 
 def estoque_dispositivo():
     os.system("cls")
-    print("ESTOQUE DISPOSITIVO:\n")
+    print("ESTOQUE DE DISPOSITIVOS:\n")
 
     for item, dados_dispositivo in dispositivos.items():
         print(
@@ -258,7 +253,7 @@ def registrar_ocorrencia():
                 time.sleep(2)
                 return
         else:
-            print("Digite uma opção Válida!")
+            print("Digite uma opção válida!")
             time.sleep(2)
             continue
 
@@ -368,6 +363,6 @@ def dispositivos_menu():
         elif opcao_dispositivo == 6:
             adicionar_estoque()
         else:
-            print("Digite uma opção Válida!")
+            print("Digite uma opção válida!")
             time.sleep(2)
             continue
