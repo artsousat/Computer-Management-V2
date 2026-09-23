@@ -92,14 +92,17 @@ def emprestar_dispositivo():
             print("Quantidade inválida, tente novamente!")
             time.sleep(2)
             continue
-        if emprestimos:
-            maior_numero = 0
-            for emprestimo in emprestimos:
-                if emprestimo["id"] > maior_numero:
-                    maior_numero = emprestimo["id"]
-            id_emprestimo = maior_numero + 1
-        else:
-            id_emprestimo = 1
+        maior_numero = 0
+
+        for emprestimo in emprestimos:
+            if emprestimo["id"] > maior_numero:
+                maior_numero = emprestimo["id"]
+
+        for registro in historico:
+            if registro["id_emprestimo"] > maior_numero:
+                maior_numero = registro["id_emprestimo"]
+
+        id_emprestimo = maior_numero + 1
         data_hora = datetime.now().strftime("%d/%m/%y - %H:%M:%S")
         novo_emprestimo = {
             "id": id_emprestimo,

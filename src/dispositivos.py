@@ -31,6 +31,10 @@ def cadastrar_dispositivo():
         novo_dispositivo = input("Digite o dispositivo que gostaria de cadastrar: ")
         if novo_dispositivo == "0":
             return
+        if novo_dispositivo == "":
+            print("Digite um dispositivo válido!")
+            time.sleep(2)
+            continue
         try:
             quantidade_dispositivo = int(input("Digite a quantidade que gostaria de cadastrar: "))
         except ValueError:
