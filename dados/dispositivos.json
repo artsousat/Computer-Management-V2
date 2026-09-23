@@ -4,14 +4,14 @@
         "estoque": 40,
         "quebrados": 1,
         "sumido": 0,
-        "utilizaveis": 9
+        "utilizaveis": 4
     },
     "2": {
         "nome": "Positivo",
         "estoque": 59,
         "quebrados": 0,
         "sumido": 0,
-        "utilizaveis": 59
+        "utilizaveis": 41
     },
     "3": {
         "nome": "Tablets",
