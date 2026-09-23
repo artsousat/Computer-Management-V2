@@ -71,6 +71,20 @@ def remover_dispositivo():
             print("Este dispositivo não existe!")
             time.sleep(2)
             continue
+        try:
+            with open("dados/emprestimos.json", "r") as arquivo:
+                emprestimos = json.load(arquivo)
+        except FileNotFoundError:
+            emprestimos = []
+        dispositivo_em_uso = False
+        for emprestimo in emprestimos:
+            if emprestimo["dispositivo_id"] == selecionado:
+                dispositivo_em_uso = True
+                break
+        if dispositivo_em_uso:
+            print("Este dispositivo possui empréstimos ativos e não pode ser removido!")
+            time.sleep(2)
+            continue
         del dispositivos[selecionado]
         with open("dados/dispositivos.json", "w") as arquivo:
             json.dump(dispositivos, arquivo, indent=4)

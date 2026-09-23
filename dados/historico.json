@@ -1,1 +1,72 @@
-[]
+[
+    {
+        "id_emprestimo": 1,
+        "professor_id": "17",
+        "professor": "Larissa",
+        "dispositivo_id": "1",
+        "dispositivo": "Chromebook",
+        "quantidade": 1,
+        "data_emprestimo": "21/09/26 - 15:47:23",
+        "data_devolucao": "22/09/26 - 13:09:15"
+    },
+    {
+        "id_emprestimo": 3,
+        "professor_id": "17",
+        "professor": "Larissa",
+        "dispositivo_id": "1",
+        "dispositivo": "Chromebook",
+        "quantidade": 1,
+        "data_emprestimo": "22/09/26 - 13:30:08",
+        "data_devolucao": "22/09/26 - 16:39:02"
+    },
+    {
+        "id_emprestimo": 4,
+        "professor_id": "18",
+        "professor": "Professora PCD",
+        "dispositivo_id": "1",
+        "dispositivo": "Chromebook",
+        "quantidade": 1,
+        "data_emprestimo": "22/09/26 - 16:16:16",
+        "data_devolucao": "22/09/26 - 17:22:59"
+    },
+    {
+        "id_emprestimo": 1,
+        "professor_id": "1",
+        "professor": "Leni",
+        "dispositivo_id": "1",
+        "dispositivo": "Chromebook",
+        "quantidade": 1,
+        "data_emprestimo": "22/09/26 - 13:09:30",
+        "data_devolucao": "22/09/26 - 17:23:51"
+    },
+    {
+        "id_emprestimo": 2,
+        "professor_id": "14",
+        "professor": "Magali",
+        "dispositivo_id": "1",
+        "dispositivo": "Chromebook",
+        "quantidade": 1,
+        "data_emprestimo": "22/09/26 - 13:09:40",
+        "data_devolucao": "22/09/26 - 17:27:19"
+    },
+    {
+        "id_emprestimo": 5,
+        "professor_id": "5",
+        "professor": "Josi",
+        "dispositivo_id": "1",
+        "dispositivo": "Chromebook",
+        "quantidade": 28,
+        "data_emprestimo": "22/09/26 - 16:55:53",
+        "data_devolucao": "22/09/26 - 17:49:18"
+    },
+    {
+        "id_emprestimo": 6,
+        "professor_id": "19",
+        "professor": "Anderson",
+        "dispositivo_id": "1",
+        "dispositivo": "Chromebook",
+        "quantidade": 1,
+        "data_emprestimo": "22/09/26 - 17:27:07",
+        "data_devolucao": "23/09/26 - 13:07:33"
+    }
+]

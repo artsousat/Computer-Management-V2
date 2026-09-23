@@ -81,6 +81,20 @@ def remover_professor():
             print("Este professor não existe!")
             time.sleep(2)
             continue
+        try:
+            with open("dados/emprestimos.json", "r") as arquivo:
+                emprestimos = json.load(arquivo)
+        except FileNotFoundError:
+            emprestimos = []
+        professor_em_uso = False
+        for emprestimo in emprestimos:
+            if emprestimo["professor_id"] == selecionado:
+                professor_em_uso = True
+                break
+        if professor_em_uso:
+            print("Este professor possui empréstimos ativos e não pode ser removido!")
+            time.sleep(2)
+            continue
         del professores[selecionado]
         with open("dados/professores.json", "w") as arquivo:
             json.dump(professores, arquivo, indent=4)
